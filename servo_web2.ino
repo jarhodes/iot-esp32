@@ -38,8 +38,7 @@ void loop() {
   if ((millis() - lastTime) > timerDelay) {
     // Check WiFi connection status
     if (WiFi.status()== WL_CONNECTED){
-      String serverPath = "http://10.0.1.29:8080/iotstate/getState.php?key=Zqgfd7wN4YFRhppqKHyz";
-      
+            
       jsonBuffer = httpGETRequest(serverPath.c_str());
       // Serial.println(jsonBuffer);
       JSONVar myObject = JSON.parse(jsonBuffer);
@@ -89,7 +88,6 @@ void servoAction(const char* newState) {
   lastState = newState;
   String lastIdString = (String) lastId;
   String requestBody = "finished=1&id=" + lastIdString;
-  String patchPath = "http://10.0.1.29:8080/iotstate/patchState.php?key=Zqgfd7wN4YFRhppqKHyz";
 
   jsonBuffer = httpPOSTRequest(patchPath.c_str(), requestBody);
   JSONVar myObject = JSON.parse(jsonBuffer);
