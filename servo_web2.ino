@@ -2,13 +2,11 @@
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>
 #include <Servo.h>
+#include "constants.h"
 
 static const int servoPin = 13;
 
 Servo servo1;
-
-const char* ssid = "Ferry";
-const char* password = "LennuLennu127";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 1000;
